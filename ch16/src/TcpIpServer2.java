@@ -8,9 +8,9 @@ public class TcpIpServer2 {
 		ServerSocket serverSocket = null;
 		
 		try {
-			// ¼­¹ö¼ÒÄÏÀ» »ı¼ºÇÏ¿© 7777¹ø Æ÷Æ®¿Í °áÇÕ(bind)½ÃÅ²´Ù.
+			// ì„œë²„ì†Œì¼“ì„ ìƒì„±í•˜ì—¬ 7777ë²ˆ í¬íŠ¸ì™€ ê²°í•©(bind)ì‹œí‚¨ë‹¤.
 			serverSocket = new ServerSocket(7777);
-			System.out.println(getTime()+"¼­¹ö°¡ ÁØºñµÇ¾ú½À´Ï´Ù.");
+			System.out.println(getTime()+"ì„œë²„ê°€ ì¤€ë¹„ë˜ì—ˆìŠµë‹ˆë‹¤.");
 
 		} catch(IOException e) {
 			e.printStackTrace();
@@ -18,23 +18,23 @@ public class TcpIpServer2 {
 		
 		while(true) {
 			try {
-				// ¼­¹ö¼ÒÄÏ
-				System.out.println(getTime()+"¿¬°á¿äÃ»À» ±â´Ù¸³´Ï´Ù.");
+				// ì„œë²„ì†Œì¼“
+				System.out.println(getTime()+"ì—°ê²°ìš”ì²­ì„ ê¸°ë‹¤ë¦½ë‹ˆë‹¤.");
 				Socket socket = serverSocket.accept();
-				System.out.println(getTime()+ socket.getInetAddress() + "·ÎºÎÅÍ ¿¬°á¿äÃ»ÀÌ µé¾î¿Ô½À´Ï´Ù.");
+				System.out.println(getTime()+ socket.getInetAddress() + "ë¡œë¶€í„° ì—°ê²°ìš”ì²­ì´ ë“¤ì–´ì™”ìŠµë‹ˆë‹¤.");
 				
 				System.out.println("getPort():"+socket.getPort());
                 System.out.println("getLocalPort():" +socket.getLocalPort());
 
-				// ¼ÒÄÏÀÇ Ãâ·Â½ºÆ®¸²À» ¾ò´Â´Ù.
+				// ì†Œì¼“ì˜ ì¶œë ¥ìŠ¤íŠ¸ë¦¼ì„ ì–»ëŠ”ë‹¤.
 				OutputStream out = socket.getOutputStream();
 				DataOutputStream dos = new DataOutputStream(out);
 
-				// ¿ø°İ ¼ÒÄÏ(remote socket)¿¡ µ¥ÀÌÅÍ¸¦ º¸³½´Ù.
+				// ì›ê²© ì†Œì¼“(remote socket)ì— ë°ì´í„°ë¥¼ ë³´ë‚¸ë‹¤.
 				dos.writeUTF("[Notice] Test Message1 from Server.");
-				System.out.println(getTime()+"µ¥ÀÌÅÍ¸¦ Àü¼ÛÇß½À´Ï´Ù.");
+				System.out.println(getTime()+"ë°ì´í„°ë¥¼ ì „ì†¡í–ˆìŠµë‹ˆë‹¤.");
 
-				// ½ºÆ®¸²°ú ¼ÒÄÏÀ» ´İ¾ÆÁØ´Ù.
+				// ìŠ¤íŠ¸ë¦¼ê³¼ ì†Œì¼“ì„ ë‹«ì•„ì¤€ë‹¤.
 				dos.close();
 				socket.close();
 			} catch (IOException e) {
@@ -43,7 +43,7 @@ public class TcpIpServer2 {
 		} // while
 	} // main
 
-	// ÇöÀç½Ã°£À» ¹®ÀÚ¿­·Î ¹İÈ¯ÇÏ´Â ÇÔ¼ö
+	// í˜„ì¬ì‹œê°„ì„ ë¬¸ìì—´ë¡œ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜
 	static String getTime() {
 		SimpleDateFormat f = new SimpleDateFormat("[hh:mm:ss]");
 		return f.format(new Date());

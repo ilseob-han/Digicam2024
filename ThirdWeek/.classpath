@@ -6,5 +6,10 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="Networking"/>
+	<classpathentry kind="src" path="MultiChatting"/>
+	<classpathentry kind="src" path="GameMaking"/>
+	<classpathentry kind="src" path="DataStructure"/>
+	<classpathentry kind="src" path="StudentList"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

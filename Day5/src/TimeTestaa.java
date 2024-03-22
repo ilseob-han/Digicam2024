@@ -7,8 +7,6 @@ public class TimeTestaa {
 		
 		for (int i =0; i<100; i++)
 		{
-			
-			
 		}
 		LocalDate christmas = LocalDate.of(2024, 12, 25);
 		System.out.println("크리스마스: " + christmas);

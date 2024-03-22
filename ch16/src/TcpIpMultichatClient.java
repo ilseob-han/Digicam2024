@@ -5,15 +5,15 @@ import java.util.Scanner;
 public class TcpIpMultichatClient {
 	public static void main(String args[]) {
 		if(args.length!=1) {
-			System.out.println("USAGE: java TcpIpMultichatClient ´ëÈ­¸í");
+			System.out.println("USAGE: java TcpIpMultichatClient ëŒ€í™”ëª…");
 			System.exit(0);
 		}
 
 		try {
 			String serverIp = "127.0.0.1";
-            // ¼ÒÄÏÀ» »ı¼ºÇÏ¿© ¿¬°áÀ» ¿äÃ»ÇÑ´Ù.
+            // ì†Œì¼“ì„ ìƒì„±í•˜ì—¬ ì—°ê²°ì„ ìš”ì²­í•œë‹¤.
 			Socket socket = new Socket(serverIp, 7777); 
-			System.out.println("¼­¹ö¿¡ ¿¬°áµÇ¾ú½À´Ï´Ù.");
+			System.out.println("ì„œë²„ì— ì—°ê²°ë˜ì—ˆìŠµë‹ˆë‹¤.");
 			Thread sender   = new Thread(new ClientSender(socket, args[0]));
 			Thread receiver = new Thread(new ClientReceiver(socket));
 

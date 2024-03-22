@@ -6,22 +6,22 @@ public class TcpIpClient {
 		try {
 			String serverIp = "127.0.0.1";
 
-			System.out.println("¼­¹ö¿¡ ¿¬°áÁßÀÔ´Ï´Ù. ¼­¹öIP :" + serverIp);
-			// ¼ÒÄÏÀ» »ı¼ºÇÏ¿© ¿¬°áÀ» ¿äÃ»ÇÑ´Ù.
+			System.out.println("ì„œë²„ì— ì—°ê²°ì¤‘ì…ë‹ˆë‹¤. ì„œë²„IP :" + serverIp);
+			// ì†Œì¼“ì„ ìƒì„±í•˜ì—¬ ì—°ê²°ì„ ìš”ì²­í•œë‹¤.
 			Socket socket = new Socket(serverIp, 7777); 
 
-			// ¼ÒÄÏÀÇ ÀÔ·Â½ºÆ®¸²À» ¾ò´Â´Ù.
+			// ì†Œì¼“ì˜ ì…ë ¥ìŠ¤íŠ¸ë¦¼ì„ ì–»ëŠ”ë‹¤.
 			InputStream in = socket.getInputStream();
 			DataInputStream dis = new DataInputStream(in);
 
-			// ¼ÒÄÏÀ¸·Î ºÎÅÍ ¹ŞÀº µ¥ÀÌÅÍ¸¦ Ãâ·ÂÇÑ´Ù.
-			System.out.println("¼­¹ö·ÎºÎÅÍ ¹ŞÀº ¸Ş½ÃÁö :"+dis.readUTF());      
-			System.out.println("¿¬°áÀ» Á¾·áÇÕ´Ï´Ù.");
+			// ì†Œì¼“ìœ¼ë¡œ ë¶€í„° ë°›ì€ ë°ì´í„°ë¥¼ ì¶œë ¥í•œë‹¤.
+			System.out.println("ì„œë²„ë¡œë¶€í„° ë°›ì€ ë©”ì‹œì§€ :"+dis.readUTF());      
+			System.out.println("ì—°ê²°ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.");
 
-			// ½ºÆ®¸²°ú ¼ÒÄÏÀ» ´İ´Â´Ù.
+			// ìŠ¤íŠ¸ë¦¼ê³¼ ì†Œì¼“ì„ ë‹«ëŠ”ë‹¤.
 			dis.close();
 			socket.close();
-			System.out.println("¿¬°áÀÌ Á¾·áµÇ¾ú½À´Ï´Ù.");
+			System.out.println("ì—°ê²°ì´ ì¢…ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 		} catch(ConnectException ce) {
 			ce.printStackTrace();
 		} catch(IOException ie) {

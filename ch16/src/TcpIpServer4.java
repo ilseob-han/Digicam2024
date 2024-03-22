@@ -8,16 +8,16 @@ public class TcpIpServer4 implements Runnable {
 	Thread[] threadArr;
 
 	public static void main(String args[]) {
-		// 5°³ÀÇ ¾²·¹µå¸¦ »ı¼ºÇÏ´Â ¼­¹ö¸¦ »ı¼ºÇÑ´Ù.
+		// 5ê°œì˜ ì“°ë ˆë“œë¥¼ ìƒì„±í•˜ëŠ” ì„œë²„ë¥¼ ìƒì„±í•œë‹¤.
 		TcpIpServer4 server = new TcpIpServer4(5);
 		server.start();
 	} // main
 	
 	public TcpIpServer4(int num) {
 		try {
-			// ¼­¹ö¼ÒÄÏÀ» »ı¼ºÇÏ¿© 7777¹ø Æ÷Æ®¿Í °áÇÕ(bind)½ÃÅ²´Ù.
+			// ì„œë²„ì†Œì¼“ì„ ìƒì„±í•˜ì—¬ 7777ë²ˆ í¬íŠ¸ì™€ ê²°í•©(bind)ì‹œí‚¨ë‹¤.
 			serverSocket = new ServerSocket(7777);
-			System.out.println(getTime()+"¼­¹ö°¡ ÁØºñµÇ¾ú½À´Ï´Ù.");
+			System.out.println(getTime()+"ì„œë²„ê°€ ì¤€ë¹„ë˜ì—ˆìŠµë‹ˆë‹¤.");
 
 			threadArr = new Thread[num];
 		} catch(IOException e) {
@@ -35,20 +35,20 @@ public class TcpIpServer4 implements Runnable {
 	public void run() {
 		while(true) {
 			try {
-				System.out.println(getTime()+ "°¡ ¿¬°á¿äÃ»À» ±â´Ù¸³´Ï´Ù.");
+				System.out.println(getTime()+ "ê°€ ì—°ê²°ìš”ì²­ì„ ê¸°ë‹¤ë¦½ë‹ˆë‹¤.");
 
 				Socket socket = serverSocket.accept();
-				System.out.println(getTime()+ socket.getInetAddress() + "·ÎºÎÅÍ ¿¬°á¿äÃ»ÀÌ µé¾î¿Ô½À´Ï´Ù.");
+				System.out.println(getTime()+ socket.getInetAddress() + "ë¡œë¶€í„° ì—°ê²°ìš”ì²­ì´ ë“¤ì–´ì™”ìŠµë‹ˆë‹¤.");
 
-				// ¼ÒÄÏÀÇ Ãâ·Â½ºÆ®¸²À» ¾ò´Â´Ù.
+				// ì†Œì¼“ì˜ ì¶œë ¥ìŠ¤íŠ¸ë¦¼ì„ ì–»ëŠ”ë‹¤.
 				OutputStream out = socket.getOutputStream();
 				DataOutputStream dos = new DataOutputStream(out);
 
-				// ¿ø°İ ¼ÒÄÏ(remote socket)¿¡ µ¥ÀÌÅÍ¸¦ º¸³½´Ù.
+				// ì›ê²© ì†Œì¼“(remote socket)ì— ë°ì´í„°ë¥¼ ë³´ë‚¸ë‹¤.
 				dos.writeUTF("[Notice] Test Message1 from Server.");
-				System.out.println(getTime()+"µ¥ÀÌÅÍ¸¦ Àü¼ÛÇß½À´Ï´Ù.");
+				System.out.println(getTime()+"ë°ì´í„°ë¥¼ ì „ì†¡í–ˆìŠµë‹ˆë‹¤.");
 
-				// ½ºÆ®¸²°ú ¼ÒÄÏÀ» ´İ¾ÆÁØ´Ù.
+				// ìŠ¤íŠ¸ë¦¼ê³¼ ì†Œì¼“ì„ ë‹«ì•„ì¤€ë‹¤.
 				dos.close();
 				socket.close();
 		    } catch (IOException e) {
@@ -57,7 +57,7 @@ public class TcpIpServer4 implements Runnable {
 		} // while	
 	} // run
 
-	// ÇöÀç½Ã°£À» ¹®ÀÚ¿­·Î ¹İÈ¯ÇÏ´Â ÇÔ¼ö
+	// í˜„ì¬ì‹œê°„ì„ ë¬¸ìì—´ë¡œ ë°˜í™˜í•˜ëŠ” í•¨ìˆ˜
 	static String getTime() {
 		String name = Thread.currentThread().getName();
 		SimpleDateFormat f = new SimpleDateFormat("[hh:mm:ss]");
