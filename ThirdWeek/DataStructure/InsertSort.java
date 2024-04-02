@@ -25,7 +25,7 @@ public class InsertSort {
 	}
 
 	private static void InsertSort(int[] data, int i) {
-		// TODO Auto-generated method stub
+
 		int n = 0;
 		int tryNo =0;
 		int temp = 0;

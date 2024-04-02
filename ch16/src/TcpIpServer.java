@@ -9,7 +9,7 @@ public class TcpIpServer {
 		
 		try {
 			// 서버소켓을 생성하여 7777번 포트와 결합(bind)시킨다.
-			serverSocket = new ServerSocket(7777);
+			serverSocket = new ServerSocket(5555);
 			System.out.println(getTime()+"서버가 준비되었습니다.");
 
 		} catch(IOException e) {

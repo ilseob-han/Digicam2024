@@ -15,7 +15,7 @@ public class TcpIpMultichatServer {
 		Socket socket = null;
 
 		try {
-			serverSocket = new ServerSocket(7777);
+			serverSocket = new ServerSocket(7894);
 			System.out.println("서버가 시작되었습니다.");
 
 			while(true) {

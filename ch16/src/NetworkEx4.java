@@ -5,7 +5,7 @@ public class NetworkEx4 {
 	public static void  main(String args[]) {
 		URL url = null;
 		BufferedReader input = null;
-		String address = "http://www.codechobo.com/sample/hello.html";
+		String address = "http://www.GOOGLE.COM";
 		String line = "";
 
 		try {

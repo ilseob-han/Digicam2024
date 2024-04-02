@@ -11,5 +11,6 @@
 	<classpathentry kind="src" path="GameMaking"/>
 	<classpathentry kind="src" path="DataStructure"/>
 	<classpathentry kind="src" path="StudentList"/>
+	<classpathentry kind="lib" path="C:/Users/BIT/Downloads/mysql-connector-j-8.0.32 (1).jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

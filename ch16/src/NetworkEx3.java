@@ -3,7 +3,7 @@ import java.net.*;
 public class NetworkEx3 {
 	public static void  main(String args[]) {
 		URL url = null;
-		String address = "http://www.codechobo.com/sample/hello.html";
+		String address = "http://www.GOOGLE.COM";
 
 		try {
 			url = new URL(address);

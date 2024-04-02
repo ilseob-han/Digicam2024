@@ -8,7 +8,7 @@ public class TcpIpClient {
 
 			System.out.println("서버에 연결중입니다. 서버IP :" + serverIp);
 			// 소켓을 생성하여 연결을 요청한다.
-			Socket socket = new Socket(serverIp, 7777); 
+			Socket socket = new Socket(serverIp, 5555); 
 
 			// 소켓의 입력스트림을 얻는다.
 			InputStream in = socket.getInputStream();

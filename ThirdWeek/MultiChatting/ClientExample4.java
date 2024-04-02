@@ -8,7 +8,7 @@ class ClientExample4 {
         }
         try {
 	    // 서버와 연결
-            Socket socket = new Socket("192.168.0.92", 9002);
+            Socket socket = new Socket("192.168.0.115", 9002);
             // 서버 아이피와 포트넘버로 socket 객체 만들기
             
 

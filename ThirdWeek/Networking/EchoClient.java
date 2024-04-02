@@ -44,6 +44,6 @@ public class EchoClient {
 		return tcpSocket; 
 	} 
 	public static void main(String[] args) throws IOException { 
-		new EchoClient("localhost", 5000); 
+		new EchoClient("localhost", 3000); 
 	} 
 } 
