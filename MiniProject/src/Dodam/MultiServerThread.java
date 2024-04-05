@@ -16,7 +16,7 @@ public class MultiServerThread implements Runnable{
     
     public MultiServerThread(MultiServer ms){
         this.ms = ms;
-        //생성자. 이 스레드가 소속될 MultiServer 인스턴스를 받아와 멤버 변수 ms에 할당             
+        //생성자. 이 스레드가 소속될 MultiServer 인스턴스를 받아와 멤버 변수 ms에 할당       
     }
     public synchronized void run(){ 	   	
     // 인터페이스의 run 메서드 구현. 이 메서드는 스레드가 시작될 때 자동으로 호출됩니다. 
