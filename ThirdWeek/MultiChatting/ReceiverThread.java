@@ -8,6 +8,8 @@ class ReceiverThread extends Thread {
     public void run() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+           
+            
             while (true) {
 		
 		//서버로부터 수신된 메시지를 모니터로 출력

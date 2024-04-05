@@ -1,32 +1,38 @@
 package GUI;
-
 import java.io.*;
 import java.net.*;
 
 public class ChatClient {
-    private static final String SERVER_ADDRESS = "localhost";
-    private static final int SERVER_PORT = 12345;
+    private static final String SERVER_IP = "127.0.0.1";
+    private static final int SERVER_PORT = 9552;
 
-    public static void main(String[] args) {
-        try (Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
-             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-             BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in))) {
+    public static void main(String[] args) throws IOException {
+        Socket socket = new Socket(SERVER_IP, SERVER_PORT);
+        
+        BufferedReader consoleReader = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+        BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
-            System.out.println("Connected to Chat Server");
-
-            String userInput;
-            while ((userInput = stdIn.readLine()) != null) {
-                out.println(userInput);
-                System.out.println("Server response: " + in.readLine());
+        // 메시지 수신을 위한 쓰레드
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String serverMessage;
+                    while ((serverMessage = in.readLine()) != null) {
+                        System.out.println(serverMessage); // 서버로부터 받은 메시지 출력
+                    }
+                } catch (IOException e) {
+                    System.err.println("Error in client: " + e.getMessage());
+                    e.printStackTrace();
+                }
             }
-        } catch (UnknownHostException e) {
-            System.err.println("Don't know about host " + SERVER_ADDRESS);
-            System.exit(1);
-        } catch (IOException e) {
-            System.err.println("Couldn't get I/O for the connection to " +
-                SERVER_ADDRESS);
-            System.exit(1);
+        }).start();
+
+        // 메시지 전송
+        String input;
+        while ((input = consoleReader.readLine()) != null) {
+            out.println(input); // 서버에 메시지 전송
         }
     }
 }

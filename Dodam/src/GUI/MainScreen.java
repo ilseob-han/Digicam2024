@@ -4,6 +4,9 @@ import java.util.List; // 이 줄을 추가
 import java.util.ArrayList; // 이 줄을 추가
 
 import javax.swing.*;
+
+import net.LoginScreen;
+
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -15,10 +18,6 @@ public class MainScreen extends JFrame {
 	private JList<String> chatList;
 	private DefaultListModel<String> chatListModel;
 	private JButton addFriendButton; // "친구 추가" 버튼
-
-	
-	
-	
 	
 	public MainScreen(String loggedInUserId) {
 		this.loggedInUserId = loggedInUserId;

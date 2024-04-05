@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import net.UserInfo;
+
 public class UserInfoDAO {
     private String jdbcURL = "jdbc:mysql://localhost:3306/miniproject1";
     private String jdbcUsername = "gangnam";
